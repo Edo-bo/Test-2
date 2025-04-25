@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Hosting - Anti Delay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    }
+    h1 {    
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+    .price-list {
+      margin-bottom: 1.5rem;
+    }
+    .price-list div {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #334155;
+      cursor: pointer;
+    }
+    .price-list div:hover {
+      background: #334155;
+    }
+    .features {
+      margin: 1.5rem 0;
+    }
+    .features div {
+      margin-bottom: 0.5rem;
+      background: #0f172a;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #38bdf8;
+    }
+    .guarantee {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #facc15;
+    }
+    .edo {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #98FB98;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form input {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      background: #334155;
+      color: white;
+    }
+    .whatsapp {
+      display: block;
+      text-align: center;
+      background: #22c55e;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+    .whatsapp:hover {
+      background: #16a34a;
+    }
+    .edoh {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+  </style>
+  <script>
+    function pilihPaket(ram, harga) {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const pesan = `Halo Admin, saya ingin pesan Panel Hosting:\nRAM: ${ram}\nHarga: ${harga}\nUsername: ${username}\nPassword: ${password}`;
+      const url = `https://wa.me/6285955201695?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Panel Hosting Murmer</h1>
+    <div class="guarantee">CARA BUY PANEL</div>
+    <div class="form">
+        
+    <div class="features">
+    <div>isi username</div>
+    <div>isi password</div>
+    <div>pilih produk</div>
+    </div>
+    
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="text" id="password" placeholder="Password" required>
+    </div>
+    
+    <div class="edoh">produk</div>
+    <div class="form">
+
+    <div class="price-list">
+      <div onclick="pilihPaket('1GB', '1k')"><span>RAM 1GB CPU UNLI</span><span>1k</span></div>
+      <div onclick="pilihPaket('2GB', '2k')"><span>RAM 2GB CPU UNLI</span><span>2k</span></div>
+      <div onclick="pilihPaket('3GB', '3k')"><span>RAM 3GB CPU UNLI</span><span>3k</span></div>
+      <div onclick="pilihPaket('4GB', '4k')"><span>RAM 4GB CPU UNLI</span><span>4k</span></div>
+      <div onclick="pilihPaket('5GB', '5k')"><span>RAM 5GB CPU UNLI</span><span>5k</span></div>
+      <div onclick="pilihPaket('6GB', '6k')"><span>RAM 6GB CPU UNLI</span><span>6k</span></div>
+      <div onclick="pilihPaket('7GB', '7k')"><span>RAM 7GB CPU UNLI</span><span>7k</span></div>
+      <div onclick="pilihPaket('8GB', '8k')"><span>RAM 8GB CPU UNLI</span><span>8k</span></div>
+      <div onclick="pilihPaket('9GB', '9k')"><span>RAM 9GB CPU UNLI</span><span>9k</span></div>
+      <div onclick="pilihPaket('10GB', '10k')"><span>RAM 10GB CPU UNLI</span><span>10k</span></div>
+      <div onclick="pilihPaket('UNLI', '12k')"><span>RAM UNLI CPU UNLI</span><span>12k</span></div>
+    </div>
+
+    <div class="features">
+      <div>SERVER ANTI DELAY</div>
+      <div>SERVER PRIVAT</div>
+      <div>ADMIN CUMAN Beberapa</div>
+      <div>ANTI INTIP</div>
+      <div>ANTI COLONG</div>
+      <div>ANTI DEL</div>
+      <div>masa aktif 30 hari</div>
+      <div>GARANSI 15 HARI</div>
+    </div>
+
+    <a class="guarantee" href="https://sewa-bot.hosti.my.id/" target="_blank">Kunjungi sewa bot whatsapp</a>
+    <a class="whatsapp" href="https://wa.me/6285955201695" target="_blank">Chat Admin via WhatsApp</a>
+  </div>
+</body>
+</html>
