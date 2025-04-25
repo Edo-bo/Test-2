@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -24,7 +25,7 @@
       padding: 2rem;
       box-shadow: 0 0 25px rgba(0,0,0,0.2);
     }
-    h1 {    
+    h1 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -59,12 +60,6 @@
       margin-bottom: 1rem;
       color: #facc15;
     }
-    .edo {
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #98FB98;
-    }
     .form {
       display: flex;
       flex-direction: column;
@@ -80,7 +75,7 @@
       background: #334155;
       color: white;
     }
-    .whatsapp {
+    .whatsapp, .submit-btn {
       display: block;
       text-align: center;
       background: #22c55e;
@@ -91,23 +86,38 @@
       font-weight: bold;
       transition: 0.3s;
       margin-top: 1rem;
+      cursor: pointer;
     }
-    .whatsapp:hover {
+    .whatsapp:hover, .submit-btn:hover {
       background: #16a34a;
     }
-    .edoh {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #38bdf8;
-    }
-
   </style>
   <script>
+    let selectedRam = '';
+    let selectedHarga = '';
+
     function pilihPaket(ram, harga) {
+      selectedRam = ram;
+      selectedHarga = harga;
+      alert(`Paket ${ram} dipilih. Klik 'Kirim sekarang' untuk mengirim ke admin.`);
+    }
+
+    function kirimPesan() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      const pesan = `Halo Admin Edo, saya ingin pesan Panel Hosting:\nRAM: ${ram}\nHarga: ${harga}\nUsername: ${username}\nPassword: ${password}`;
+      const cpu = document.getElementById('cpu').value;
+
+      if (!selectedRam || !selectedHarga) {
+        alert('Silakan pilih RAM terlebih dahulu.');
+        return;
+      }
+
+      if (!username || !password || !cpu) {
+        alert('Silakan isi semua data.');
+        return;
+      }
+
+      const pesan = `Halo Admin, saya ingin pesan Panel\n\n»»————> DETAILNYA <————««\nRAM : ${selectedRam}\nCPU : ${cpu}\nHARGA : ${selectedHarga}\nUSERNAME : ${username}\nPASSWORD : ${password}`;
       const url = `https://wa.me/6285955201695?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
     }
@@ -115,36 +125,29 @@
 </head>
 <body>
   <div class="container">
-    <h1>Panel Hosting Murmer</h1>
-    <div class="guarantee">CARA BUY PANEL</div>
+    <h1>Panel Hosting</h1>
+
     <div class="form">
-        
-    <div class="features">
-    <div>isi username</div>
-    <div>isi password</div>
-    <div>pilih produk</div>
+      <input type="text" id="username" placeholder="Username ( username panel )" required>
+      <input type="text" id="password" placeholder="Password ( password panel )" required>
+      <input type="text" id="cpu" placeholder="CPU ( 10% sampai unli )" required>
     </div>
-    
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="text" id="password" placeholder="Password" required>
-    </div>
-    
-    <div class="edoh">produk</div>
-    <div class="form">
 
     <div class="price-list">
-      <div onclick="pilihPaket('1GB', '1k')"><span>RAM 1GB CPU UNLI</span><span>1k</span></div>
-      <div onclick="pilihPaket('2GB', '2k')"><span>RAM 2GB CPU UNLI</span><span>2k</span></div>
-      <div onclick="pilihPaket('3GB', '3k')"><span>RAM 3GB CPU UNLI</span><span>3k</span></div>
-      <div onclick="pilihPaket('4GB', '4k')"><span>RAM 4GB CPU UNLI</span><span>4k</span></div>
-      <div onclick="pilihPaket('5GB', '5k')"><span>RAM 5GB CPU UNLI</span><span>5k</span></div>
-      <div onclick="pilihPaket('6GB', '6k')"><span>RAM 6GB CPU UNLI</span><span>6k</span></div>
-      <div onclick="pilihPaket('7GB', '7k')"><span>RAM 7GB CPU UNLI</span><span>7k</span></div>
-      <div onclick="pilihPaket('8GB', '8k')"><span>RAM 8GB CPU UNLI</span><span>8k</span></div>
-      <div onclick="pilihPaket('9GB', '9k')"><span>RAM 9GB CPU UNLI</span><span>9k</span></div>
-      <div onclick="pilihPaket('10GB', '10k')"><span>RAM 10GB CPU UNLI</span><span>10k</span></div>
-      <div onclick="pilihPaket('UNLI', '12k')"><span>RAM UNLI CPU UNLI</span><span>12k</span></div>
+      <div onclick="pilihPaket('1GB', '1k')"><span>RAM 1GB</span><span>1k</span></div>
+      <div onclick="pilihPaket('2GB', '2k')"><span>RAM 2GB</span><span>2k</span></div>
+      <div onclick="pilihPaket('3GB', '3k')"><span>RAM 3GB</span><span>3k</span></div>
+      <div onclick="pilihPaket('4GB', '4k')"><span>RAM 4GB</span><span>4k</span></div>
+      <div onclick="pilihPaket('5GB', '5k')"><span>RAM 5GB</span><span>5k</span></div>
+      <div onclick="pilihPaket('6GB', '6k')"><span>RAM 6GB</span><span>6k</span></div>
+      <div onclick="pilihPaket('7GB', '7k')"><span>RAM 7GB</span><span>7k</span></div>
+      <div onclick="pilihPaket('8GB', '8k')"><span>RAM 8GB</span><span>8k</span></div>
+      <div onclick="pilihPaket('9GB', '9k')"><span>RAM 9GB</span><span>9k</span></div>
+      <div onclick="pilihPaket('10GB', '10k')"><span>RAM 10GB</span><span>10k</span></div>
+      <div onclick="pilihPaket('UNLI', '12k')"><span>RAM UNLI</span><span>12k</span></div>
     </div>
+
+    <button class="submit-btn" onclick="kirimPesan()">Kirim Sekarang</button>
 
     <div class="features">
       <div>SERVER ANTI DELAY</div>
@@ -153,10 +156,10 @@
       <div>ANTI INTIP</div>
       <div>ANTI COLONG</div>
       <div>ANTI DEL</div>
-      <div>masa aktif 30 hari</div>
-      <div>GARANSI 15 HARI</div>
     </div>
-    <a class="whatsapp" href="https://wa.me/6285955201695" target="_blank">Request Chat Admin via WhatsApp</a>
+
+    <div class="guarantee">GARANSI 15 HARI</div>
+    <a class="whatsapp" href="https://wa.me/6285955201695" target="_blank">Chat Admin via WhatsApp</a>
   </div>
 </body>
 </html>
